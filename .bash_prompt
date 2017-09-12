@@ -1,0 +1,68 @@
+# git status color + non-master branch name functions
+# from http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/
+
+function _git_prompt() {
+    local git_status="`git status -unormal 2>&1`"
+    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+        if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+            local ansi=42
+        elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+            local ansi=43
+        else
+            local ansi=45
+        fi
+        if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
+            branch=${BASH_REMATCH[1]}
+            test "$branch" != master || branch=' '
+        else
+            # Detached HEAD.  (branch=HEAD is a faster alternative.)
+            branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
+                echo HEAD`)"
+        fi
+        echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
+    fi
+}
+
+function _prompt_command() {
+    local which_face=$(( $RANDOM % 12 )) # we got 12 faces yo
+
+    if [[ $which_face = 0 ]]; then
+        local the_face='"\_(n_n)_/"'
+    elif [[ $which_face = 1 ]]; then
+        local the_face='┏(;_;)┛'
+    elif [[ $which_face = 2 ]]; then
+        local the_face='┗(u_u)┓'
+    elif [[ $which_face = 3 ]]; then
+        local the_face='¯\_(ツ)_/¯'
+    elif [[ $which_face = 4 ]]; then
+        local the_face='┏(n_n)┓'
+    elif [[ $which_face = 5 ]]; then
+        local the_face='┗(o_O)┛'
+    elif [[ $which_face = 6 ]]; then
+        local the_face='(ಠ_ಠ)'
+    elif [[ $which_face = 7 ]]; then
+        local the_face='(︶︿︶)'
+    elif [[ $which_face = 8 ]]; then
+        local the_face='<(⊙︿⊙)>'
+    elif [[ $which_face = 9 ]]; then
+        local the_face='(ಠ.∩.ಠ)'
+    elif [[ $which_face = 10 ]]; then
+        local the_face="(>'-')>"
+    elif [[ $which_face = 11 ]]; then
+        local the_face="<('-'<)"
+    fi
+
+    # first put git prompt in
+    # then add the faces
+    # then on a newline,
+    # 1. tell me the date/time
+    # 2. tell me about the working directory
+    #    \e[4m == underline
+    #    \e[1m == bold
+    #    \e[0m == clear formatting
+    # format text: http://misc.flogisoft.com/bash/tip_colors_and_formatting
+    # time:
+    PS1='>> `date "+%Y-%m-%d %H:%M:%S"` \[\e[4m\[\e[1m\w\[\e[0m '`_git_prompt`"$the_face"' \n>> '
+}
+
+PROMPT_COMMAND=_prompt_command
