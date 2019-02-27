@@ -52,16 +52,14 @@ function _prompt_command() {
         local the_face="<('-'<)"
     fi
 
-    # first put git prompt in
-    # then add the faces
-    # then on a newline,
     # 1. tell me the date/time
     # 2. tell me about the working directory
     #    \e[4m == underline
     #    \e[1m == bold
     #    \e[0m == clear formatting
-    # format text: http://misc.flogisoft.com/bash/tip_colors_and_formatting
-    # time:
+    #    format text: http://misc.flogisoft.com/bash/tip_colors_and_formatting
+    # 3. insert git prompt & face defined above
+    # 4. new line because TMI
     PS1='>> `date "+%Y-%m-%d %H:%M:%S"` \[\e[4m\[\e[1m\w\[\e[0m '`_git_prompt`"$the_face"' \n>> '
 }
 
