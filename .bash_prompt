@@ -24,7 +24,7 @@ function _git_prompt() {
 }
 
 function _prompt_command() {
-    local which_face=$(( $RANDOM % 12 )) # we got 12 faces yo
+    local which_face=$(( $RANDOM % 13 )) # we got 13 faces yo
 
     if [[ $which_face = 0 ]]; then
         local the_face='"\_(n_n)_/"'
@@ -50,6 +50,8 @@ function _prompt_command() {
         local the_face="(>'-')>"
     elif [[ $which_face = 11 ]]; then
         local the_face="<('-'<)"
+    elif [[ $which_face = 12 ]]; then
+        local the_face="^(;,;)^"
     fi
 
     # 1. tell me the date/time
