@@ -20,3 +20,6 @@ gs() {
         git status
     fi
 }
+
+# gimme direnv but always last
+eval "$(direnv hook bash)"
