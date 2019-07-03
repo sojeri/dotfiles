@@ -1,21 +1,21 @@
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    hist = log --pretty='%h %ad | %s%d [%an]' --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty='%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
 [commit]
-    template = ~/.git_message_template
+	template = ~/.git_message_template
 [core]
 	excludesfile = ~/.gitignore_global
-    whitespace = fix,-indent-with-non-tab,trailing-space
-	editor = atom --wait
+	whitespace = fix,-indent-with-non-tab,trailing-space
+	editor = code --wait
 [push]
 	default = simple
 [help]
-    autocorrect = 15
+	autocorrect = 15
 [color]
 	ui = auto
 [color "branch"] 
@@ -32,3 +32,6 @@
 	added = green bold
 	changed = yellow bold
 	untracked = red bold
+[user]
+	name = Jeri Sommers
+	email = LOL NOPE
