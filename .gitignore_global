@@ -1,0 +1,13 @@
+# system files
+.DS_Store
+
+# packages
+node_modules/
+
+# my own things
+*.IGNORE_ME
+IGNORE_ME.md
+
+# secrets
+.envrc
+.env
