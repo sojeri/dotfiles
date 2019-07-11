@@ -8,6 +8,12 @@ if [ -f ~/.bash_prompt ]; then
     source ~/.bash_prompt
 fi
 
+# gimme git branch autocomplete
+# curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
+fi
+
 # make ls pretty again
 export CLICOLOR=1
 
