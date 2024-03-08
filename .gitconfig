@@ -1,14 +1,16 @@
 [alias]
-    a = add
+	a = add
 	b = branch
+	c = commit
 	co = checkout
 	cp = cherry-pick
-	c = commit
+	d = diff
+	l = log --pretty='%h %ad | %s%d [%an]' --graph --date=short
 	s = status
 	r = rebase
 	pfr = push --force-with-lease
-    ps = push
-    pl = pull
+	ps = push
+	pl = pull
 	hist = log --pretty='%h %ad | %s%d [%an]' --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p

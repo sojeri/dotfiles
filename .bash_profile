@@ -21,7 +21,7 @@ export CLICOLOR=1
 gs() {
     local git_status="`git status -unormal 2>&1`"
     if [[ "$git_status" =~ not\ a\ git\ repo ]]; then
-        ls -F
+        ls -Fa
     else
         git status
     fi
