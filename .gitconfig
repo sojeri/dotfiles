@@ -1,8 +1,14 @@
 [alias]
+    a = add
+	b = branch
 	co = checkout
-	ci = commit
-	st = status
-	br = branch
+	cp = cherry-pick
+	c = commit
+	s = status
+	r = rebase
+	pfr = push --force-with-lease
+    ps = push
+    pl = pull
 	hist = log --pretty='%h %ad | %s%d [%an]' --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p
@@ -14,6 +20,7 @@
 	editor = code --wait
 [push]
 	default = simple
+	autoSetupRemote = true
 [help]
 	autocorrect = 15
 [color]
@@ -33,5 +40,5 @@
 	changed = yellow bold
 	untracked = red bold
 [user]
-	name = Jeri Sommers
+	name = ☕️ Jeri Sommers 🐍
 	email = LOL NOPE

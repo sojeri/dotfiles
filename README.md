@@ -10,9 +10,9 @@ notes to future self:
 <!--
 
 TODO list:
-- dotfiles install script
-- consider refactor (if nec) for zsh
-- script typical install pattern?
+- [ ] dotfiles install script
+- [x] consider refactor (if nec) for zsh
+- [ ] script typical install pattern?
     - or make a so you have a fresh os install on a computer doc
     - brew
     - node

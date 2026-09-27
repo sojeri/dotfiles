@@ -1,0 +1,62 @@
+# git status color + non-master branch name functions
+# from http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/
+# ported from bash to zsh: precmd instead of PROMPT_COMMAND, $match instead of
+# $BASH_REMATCH, and zsh prompt escapes instead of raw ANSI.
+
+function _git_prompt() {
+    local git_status="$(git status -unormal 2>&1)"
+    [[ "$git_status" =~ "not a git repo" ]] && return
+
+    local bg
+    if [[ "$git_status" =~ "nothing to commit" ]]; then
+        bg=28
+    elif [[ "$git_status" =~ "nothing added to commit but untracked files present" ]]; then
+        bg=94
+    else
+        bg=90
+    fi
+
+    local branch
+    if [[ "$git_status" =~ "On branch ([^[:space:]]+)" ]]; then
+        branch=$match[1]
+        [[ "$branch" == (master|main) ]] && branch=''
+    else
+        # Detached HEAD.  (branch=HEAD is a faster alternative.)
+        branch="($(git describe --all --contains --abbrev=4 HEAD 2>/dev/null || echo HEAD))"
+    fi
+
+    # %% so a branch name containing % can't be read as a prompt escape
+    print -rn -- "%K{$bg}%F{white}%B ${branch//\%/%%} %b%f%k "
+}
+
+# we got 13 faces yo
+_faces=(
+    '"\_(n_n)_/"'
+    '┏(;_;)┛'
+    '┗(u_u)┓'
+    '¯\_(ツ)_/¯'
+    '┏(n_n)┓'
+    '┗(o_O)┛'
+    '(ಠ_ಠ)'
+    '(︶︿︶)'
+    '<(⊙︿⊙)>'
+    '(ಠ.∩.ಠ)'
+    "(>'-')>"
+    "<('-'<)"
+    "^(;,;)^"
+)
+
+function _prompt_command() {
+    local the_face=$_faces[$((RANDOM % 13 + 1))]
+
+    # 1. tell me the date/time
+    # 2. tell me about the working directory
+    #    %U == underline, %B == bold, %~ == cwd
+    #    http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    # 3. insert git prompt & face defined above
+    # 4. new line because TMI
+    PROMPT=">> %D{%Y-%m-%d %H:%M:%S} %U%B%~%b%u $(_git_prompt)${the_face}
+>> "
+}
+
+precmd_functions+=(_prompt_command)
