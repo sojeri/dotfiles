@@ -24,7 +24,7 @@ function _git_prompt() {
 }
 
 function _prompt_command() {
-    local which_face=$(( $RANDOM % 13 )) # we got 13 faces yo
+    local which_face=$(( $RANDOM % 60 )) # we got 60 faces now
 
     if [[ $which_face = 0 ]]; then
         local the_face='"\_(n_n)_/"'
@@ -52,6 +52,100 @@ function _prompt_command() {
         local the_face="<('-'<)"
     elif [[ $which_face = 12 ]]; then
         local the_face="^(;,;)^"
+    elif [[ $which_face = 13 ]]; then
+        local the_face='﴾͡๏̯͡๏﴿'
+    elif [[ $which_face = 14 ]]; then
+        local the_face='✧♡(◕‿◕ )'
+    elif [[ $which_face = 15 ]]; then
+        local the_face='(ㆆ _ ㆆ)'
+    elif [[ $which_face = 16 ]]; then
+        local the_face='(ᗒ ᗣ ᗕ)՞'
+    elif [[ $which_face = 17 ]]; then
+        local the_face='ᶘ ◕ᴥ◕ᶅ'
+    elif [[ $which_face = 18 ]]; then
+        local the_face='【≽ ܫ ≼】'
+    elif [[ $which_face = 19 ]]; then
+        local the_face='( ͡ಠ ͜ʖ ͡ಠ)'
+    elif [[ $which_face = 20 ]]; then
+        local the_face='ξξ(∵◕ ◡ ◕∵)ξξ'
+    elif [[ $which_face = 21 ]]; then
+        local the_face='┬──┬ ノ( ゜-゜ノ)'
+    elif [[ $which_face = 22 ]]; then
+        local the_face='╚(ಠ_ಠ)=┐'
+    elif [[ $which_face = 23 ]]; then
+        local the_face='╰( ⁰ ਊ ⁰ )━☆ﾟ.*･｡ﾟ'
+    elif [[ $which_face = 24 ]]; then
+        local the_face='ಠ╭╮ಠ'
+    elif [[ $which_face = 25 ]]; then
+        local the_face='(ಠ ∩ ಠ)'
+    elif [[ $which_face = 26 ]]; then
+        local the_face='o͡͡͡╮༼ • ʖ̯ • ༽╭o͡͡͡'
+    elif [[ $which_face = 27 ]]; then
+        local the_face='⋋| ◉ ͟ʖ ◉ |⋌'
+    elif [[ $which_face = 28 ]]; then
+        local the_face='¯\_(⊙︿⊙)_/¯'
+    elif [[ $which_face = 29 ]]; then
+        local the_face='◔ ‿ ◔'
+    elif [[ $which_face = 30 ]]; then
+        local the_face='༼ʘ̚ل͜ʘ̚༽'
+    elif [[ $which_face = 31 ]]; then
+        local the_face='〷◠‿◠〷'
+    elif [[ $which_face = 32 ]]; then
+        local the_face='╰(✿ ‿ ✿)╯'
+    elif [[ $which_face = 33 ]]; then
+        local the_face='ʕ⊙ᴥ⊙ʔ'
+    elif [[ $which_face = 34 ]]; then
+        local the_face='ლ(▀̿̿Ĺ̯̿̿▀̿ლ)'
+    elif [[ $which_face = 35 ]]; then
+        local the_face='(̿▀̿ ̿Ĺ̯̿̿▀̿ ̿)̄'
+    elif [[ $which_face = 36 ]]; then
+        local the_face='(⌐⊙_⊙)'
+    elif [[ $which_face = 37 ]]; then
+        local the_face='●﹏●'
+    elif [[ $which_face = 38 ]]; then
+        local the_face='୧༼ಠ益ಠ༽୨'
+    elif [[ $which_face = 39 ]]; then
+        local the_face='┌( ՞ ڡ ՞ )┐'
+    elif [[ $which_face = 40 ]]; then
+        local the_face='(▀̿Ĺ̯▀̿ ̿)'
+    elif [[ $which_face = 41 ]]; then
+        local the_face='༼ つ ▀_▀ ༽つ'
+    elif [[ $which_face = 42 ]]; then
+        local the_face='(◣_◢)'
+    elif [[ $which_face = 43 ]]; then
+        local the_face='♪└(￣◇￣)┐♪'
+    elif [[ $which_face = 44 ]]; then
+        local the_face='ヽ(⌐■_■)ノ♪♬'
+    elif [[ $which_face = 45 ]]; then
+        local the_face='༼ ºل͟º༼ ºل͟º ༽ºل͟º ༽'
+    elif [[ $which_face = 46 ]]; then
+        local the_face='ヽ༼ ຈل͜ຈ༼ ▀̿̿Ĺ̯̿̿▀̿ ̿༽Ɵ͆ل͜Ɵ͆ ༽ﾉ'
+    elif [[ $which_face = 47 ]]; then
+        local the_face='(╯°□°）╯︵ ┻━┻'
+    elif [[ $which_face = 48 ]]; then
+        local the_face=' ▅▒░☼‿☼░▒▅ '
+    elif [[ $which_face = 49 ]]; then
+        local the_face='(୧⌐■˽■)୨'
+    elif [[ $which_face = 50 ]]; then
+        local the_face='╚༼ •ᴗ• ༽╗'
+    elif [[ $which_face = 51 ]]; then
+        local the_face='(˵ ꒡﹏꒡˵)'
+    elif [[ $which_face = 52 ]]; then
+        local the_face='╚❮ ▪‿▪ ❯╗'
+    elif [[ $which_face = 53 ]]; then
+        local the_face='〵(″⚈╭╮⚈)ノ'
+    elif [[ $which_face = 54 ]]; then
+        local the_face='⋘(•˘⊖˘•)⋙'
+    elif [[ $which_face = 55 ]]; then
+        local the_face='ʚʘ͜͡﴿﴿﴿﴿﴿﴿⫷'
+    elif [[ $which_face = 56 ]]; then
+        local the_face='〘⁄ ⁄☉⁄⌓⁄☉⁄ ⁄〙'
+    elif [[ $which_face = 57 ]]; then
+        local the_face='(ʘ̥︿ʘ̥)'
+    elif [[ $which_face = 58 ]]; then
+        local the_face='┏(‘▀ ヮ ▀’)ノ♬♪ ♪.ıılıll|̲̅̅●̲̅̅|̲̅̅=̲̅̅|̲̅̅●̲̅̅|llılıı.♫'
+    elif [[ $which_face = 59 ]]; then
+        local the_face='(▰˘◡˘▰)'
     fi
 
     # 1. tell me the date/time
